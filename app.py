@@ -36,6 +36,7 @@ fig1 = px.histogram(df, x="days_listed", color= selected_var)
 fig1.update_layout(title = "<b> Split of Days Posted by {}</b>".format(selected_var))
 st.plotly_chart(fig1)
 
+write(""" After viewing the data, we can tell that the odometer number influences the number of days listed. """)
 
 def age_category(x):
     if x<5: return '<5'
@@ -53,3 +54,7 @@ fig2 = px.scatter(df, x='days_listed', y= choice_for_scatter, color = "age_categ
 fig2.update_layout(title = "<b> Days Listed vs {}</b>".format(choice_for_scatter))
 st.plotly_chart(fig2)
 
+write("""After viewing the data, we can tell that that the odometer number influences the number of days listed. """)
+
+
+write (""" Overall, even though other factors come into play about how long a vehicle is listed, the odometer numbers has the greastest impact of the amount of days listed for vehicles in the US.  """)
