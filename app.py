@@ -14,14 +14,13 @@ model_choice = df['model'].unique()
 
 selected_manu = st.selectbox('Select a Model', model_choice)
 
+min_days_listed, max_days_listed = int(df['days_listed'].min()), int(df['days_listed'].max())
 
-min_price, max_price = int(df['price'].min()), int(df['price'].max())
+days_listed_range = st.slider("Select Number of Days Listed", value=(min_days_listed, max_days_listed), min_value=min_days_listed, max_value=max_days_listed)
+days_listed_range[0]
+days_listed_range[1]
 
-price_range = st.slider("Select Price", value=(min_price, max_price), min_value=min_price, max_value=max_price)
-price_range[0]
-price_range[1]
-
-actual_range = list(range(price_range[0], price_range[1]+1))
+actual_range = list(range(days_listed_range[0], days_listed_range[1]+1))
 
 
 df_filtered = df[ (df.manufacturer_name == selected_manu) & df.model_year.isin(list(actual_range))]
