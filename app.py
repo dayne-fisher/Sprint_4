@@ -30,7 +30,7 @@ st.header("Days Posted Analysis")
 st.write(""" Let's analyze what variable influences price the most between Condition, Model Year and Odometer""")
 
 list_for_hist = ['condition', 'model_year', 'odometer']
-selected_var = st.selctbox('Filter for Days Posted Difference', list_for_hist)
+selected_var = st.selectbox('Filter for Days Posted Difference', list_for_hist)
 
 
 fig1 = px.histogram(df, x="days_listed", color= selected_var)
