@@ -23,7 +23,7 @@ days_listed_range[1]
 actual_range = list(range(days_listed_range[0], days_listed_range[1]+1))
 
 
-df_filtered = df[ (df.model_name == selected_manu) & df.model_year.isin(list(actual_range))]
+df_filtered = df[ (df.model == selected_manu) & df.model_year.isin(list(actual_range))]
 
 
 st.header("Days Posted Analysis")
