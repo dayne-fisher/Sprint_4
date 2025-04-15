@@ -14,6 +14,7 @@ model_choice = df['model'].unique()
 
 selected_manu = st.selectbox('Select a Model', model_choice)
 
+
 min_price, max_price = int(df['price'].min()), int(df['price'].max())
 
 price_range = st.slider("Select Price", value=(min_price, max_price), min_value=min_price, max_value=max_price)
