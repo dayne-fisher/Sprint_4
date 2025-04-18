@@ -27,9 +27,9 @@ df_filtered = df[ (df.model == selected_manu) & df.model_year.isin(list(actual_r
 
 
 st.header("Days Posted Analysis")
-st.write(""" Let's analyze what variable influences price the most between Condition, Model Year and Odometer""")
+st.write(""" Let's analyze what variable influences days posted the most between Condition or Model Year""")
 
-list_for_hist = ['condition', 'model_year', 'odometer']
+list_for_hist = ['condition', 'model_year']
 selected_var = st.selectbox('Filter for Days Posted Difference', list_for_hist)
 
 
@@ -37,7 +37,7 @@ fig1 = px.histogram(df, x="days_listed", color= selected_var)
 fig1.update_layout(title = "<b> Split of Days Posted by {}</b>".format(selected_var))
 st.plotly_chart(fig1)
 
-st.write(""" After viewing the data, we can tell that the odometer number influences the number of days listed. """)
+st.write(""" After viewing the data, we can tell that the condition influences the number of days listed. """)
 
 def age_category(x):
     if x<5: return '<5'
@@ -47,7 +47,7 @@ def age_category(x):
 df['age'] = 2024 - df['model_year']
 df['age_category'] = df['age'].apply(age_category)
 
-list_for_scatter = ["odometer", "paint_color", "is_4wd", "type"]
+list_for_scatter = ["paint_color", "is_4wd", "type"]
 
 choice_for_scatter = st.selectbox('Days Listed depending on', list_for_scatter)
 
@@ -58,4 +58,4 @@ st.plotly_chart(fig2)
 st.write("""After viewing the data, we can tell that that the odometer number influences the number of days listed. """)
 
 
-st.write (""" Overall, even though other factors come into play about how long a vehicle is listed, the odometer numbers has the greastest impact of the amount of days listed for vehicles in the US.  """)
+st.write (""" Overall, even though other factors come into play about how long a vehicle is listed, the condition has the greastest impact of the amount of days listed for vehicles in the US.  """)
