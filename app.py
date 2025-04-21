@@ -12,7 +12,7 @@ df = df.drop(df.columns[0], axis=1)
 
 model_choice = df['model'].unique()
 
-selected_manu = st.selectbox('Select a Model', model_choice)
+selected_model = st.selectbox('Select a Model', model_choice)
 
 min_days_listed, max_days_listed = int(df['days_listed'].min()), int(df['days_listed'].max())
 
@@ -23,7 +23,7 @@ days_listed_range[1]
 actual_range = list(range(days_listed_range[0], days_listed_range[1]+1))
 
 
-df_filtered = df[ (df.model == selected_manu) & df.model_year.isin(list(actual_range))]
+df_filtered = df[ (df.model == selected_model) & df.model_year.isin(list(actual_range))]
 
 
 st.header("Days Posted Analysis")
