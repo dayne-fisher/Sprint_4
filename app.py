@@ -4,6 +4,12 @@ import streamlit as st
 import plotly.express as px
 import numpy as np
 
+st.header("Ads of Vehicles in the US")
+st.write("Filter the data below to see the by each manufacturer")
+
+
+df = pd.read_csv('vehicles_us.csv')
+df = df.drop(df.columns[0], axis=1)
 
 st.header("Days Posted Analysis")
 st.write(""" Let's analyze what variable influences days posted the most between Condition or Model Year""")
